@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html  lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="style.css" type="text/css" rel="stylesheet">
+<title>Registro de Usuario</title>
+
+</head>
+
+<body>
+
+<!-- Formulario -->
+<section class="form"> 
+<h4> <i class="medium material-icons">account_box</i><b> Web </b>  Developer</h4>
+<form id="form">
+
+<fieldset class=fieldset>
+    <div class="progress">
+        <div class="determinate" style="width: 70%"></div>
+    </div>
+<legend><h3>Formulario de afiliación</h3></legend>
+
+
+<!-- Nombre -->
+
+<div class="input-field col s6" id="g">
+   
+    <i class="material-icons prefix ">account_circle</i>
+    <input id="nombre" type="text" name="nombre" class="validate" required/>
+
+    <i class="material-icons prefix cancel" id="b1">check_circle</i>
+   <label for="nombre">Nombre </label>
+   <h6 id="m1">Debe llenar este campo</h6>  <!-- m1 Message 1 -->
+   <h6 id="m2">El nombre no debe superar los 25 caracteres</h6> <!-- m2 Message 2 -->
+</div>
+
+
+
+<!-- Email -->
+
+<div class="input-field col s6">
+    <i class="material-icons prefix" id="icon">contact_mail</i>
+    <input id="email" type="text" name="email" class="validate" /> 
+    <i class="material-icons prefix" id="incorrect7">cancel</i>
+    <i class="material-icons prefix cancel" id="b7">check_circle</i>
+    <label for="email">Email</label>
+    <h6 id="m10">No es un correo válido</h6>
+  </div>
+
+
+<!-- Telefono -->
+  <div class="input-field col s6" id="g">
+    <i class="material-icons prefix ">call</i>
+    <input id="nombre" type="text" class="validate" required/>
+
+    <i class="material-icons prefix cancel" id="b1">check_circle</i>
+   <label for="nombre">Teléfono</label>
+</div>
+
+
+  <!--- Botón Gustos-->
+  <p>
+    <div class="file-field input-field">
+      <div class="btn" onclick="guardar()">
+        <span>Gustos</span>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" id="answer">
+      </div>
+    </div>
+
+
+
+      
+    <div class="card-content">
+        <table class="highlight" id="table2">
+          <tr>
+            <th>Gusto</th>
+            <th>%</th>
+            <th>Edit</th>
+          </thead>
+    
+          <tbody >
+            
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Editar</th>
+            </tr>
+          </tbody>
+    
+      </div>
+    
+      <table >
+        <thead>
+            <tr>
+                <th>Gusto</th>
+                <th>%</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="table"></th>
+                <th><input id="porcentaje" type="text" /></th>
+                <th><div class="btn" id="editar">
+                    <span>Editar</span>
+                  </div></th>
+              </tr>
+            
+
+        </tbody>
+    </table>
+ </fieldset>
+ <p>Pulse Aceptar para Guardar los cambios o cancelar para anularlos</p>
+
+
+
+<!-- Botones -->
+<div class="file-field input-field">
+ <button class="btn waves-effect waves-light btn-large green" type="submit" name="submit" id="button"><a href="Resultado.html"></a>Aceptar
+    <i class="material-icons right">send</i>
+  </button> 
+
+  <button class="btn waves-effect waves-light btn-large red" type="reset" name="limpiar" id="button">Cancelar
+    <i class="material-icons right">remove_circle</i>
+  </button>
+</div>
+</section>
+</form>
+
+
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>      
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>  
+<script src="validacion.js"></script>  <!-- Documento JavaScript para la validación -->
+
+
+<!-- Cambiar formato de la fecha de nacimiento para poder calcular la edad -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('select').formSelect();
+        
+    });
+
+    $(document).ready(function(){
+      $('#fechan').datepicker({format:'yyyy-mm-dd'});
+    });
+  
+  </script>
+
+</body>
+
+
+<script>
+    window.onload = function() {
+        window.datos = [];
+    }
+    function agregarElemento() {
+        let dato = document.getElementById('answer').value;
+
+        datos.push(dato);
+    }
+    function mostrarA() {
+        let dato = document.getElementById('answer').value;
+        datos.push(dato);
+        let resultado = document.getElementById('table');
+
+        resultado.innerHTML = '';
+        for (const dato of datos) {
+            var datoParrafo = document.createElement('p');
+            datoParrafo.innerText = dato;
+
+            resultado.append(datoParrafo);
+        }
+    }
+</script>
+</html>
